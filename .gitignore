@@ -4,3 +4,8 @@ node_modules/
 .vscode/
 .idea/
 *.swp
+
+# Dev-internal docs — kept locally, not published
+CLAUDE.md
+devlog.md
+initial_goal.md
