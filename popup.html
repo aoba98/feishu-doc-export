@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Feishu Doc Export</title>
+    <link rel="stylesheet" href="popup.css" />
+  </head>
+  <body>
+    <main class="popup">
+      <header class="header">
+        <div>
+          <h1>Feishu Doc Export</h1>
+          <p id="pageTitle" class="page-title">正在检查页面</p>
+        </div>
+        <span id="pageBadge" class="badge">检查中</span>
+      </header>
+
+      <aside id="exportWarning" class="warning" role="alert">
+        <span class="warning-icon" aria-hidden="true">⚠︎</span>
+        <span>导出期间请勿切换标签或最小化此窗口，否则插件 popup 会关闭，导致导出中断。</span>
+      </aside>
+
+      <section class="options" aria-label="导出选项">
+        <label class="option">
+          <input id="autoScroll" type="checkbox" checked />
+          <span>导出前自动滚动到底部</span>
+        </label>
+        <label class="option">
+          <input id="exportImages" type="checkbox" checked />
+          <span>导出图片资源</span>
+        </label>
+        <label class="option">
+          <input id="preserveImageUrls" type="checkbox" checked />
+          <span>图片下载失败时保留原始 URL</span>
+        </label>
+        <label class="option">
+          <input id="saveToDefault" type="checkbox" />
+          <span>直接保存到浏览器默认下载文件夹（不弹出"另存为"对话框）</span>
+        </label>
+      </section>
+
+      <button id="exportButton" class="primary" type="button" disabled>
+        Export Markdown ZIP
+      </button>
+
+      <section class="status" aria-live="polite">
+        <div class="status-row">
+          <span id="statusDot" class="status-dot"></span>
+          <span id="statusText">正在检查页面</span>
+        </div>
+        <pre id="log" class="log"></pre>
+      </section>
+    </main>
+
+    <script src="lib/jszip.min.js"></script>
+    <script src="utils/filename.js"></script>
+    <script src="utils/image.js"></script>
+    <script src="utils/zip.js"></script>
+    <script src="exporters/markdown.js"></script>
+    <script src="popup.js"></script>
+  </body>
+</html>

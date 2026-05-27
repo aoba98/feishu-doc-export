@@ -1,0 +1,20 @@
+{
+  "manifest_version": 3,
+  "name": "Feishu Doc Export",
+  "version": "0.1.2",
+  "description": "Export the current Feishu or Lark document as a local Markdown ZIP package.",
+  "permissions": ["activeTab", "scripting", "downloads"],
+  "host_permissions": [
+    "https://*.feishu.cn/*",
+    "https://*.larksuite.com/*",
+    "https://*.feishucdn.com/*",
+    "https://*.larksuitecdn.com/*"
+  ],
+  "action": {
+    "default_title": "Feishu Doc Export",
+    "default_popup": "popup.html"
+  },
+  "background": {
+    "service_worker": "service_worker.js"
+  }
+}
